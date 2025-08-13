@@ -86,3 +86,64 @@ for (i in 1:length(tree_height)) {
   print(val)
 }
 
+# loops with conditional
+animal <- c("cat", "dog", "dog")
+#guts
+one_animal <- animal[1]
+
+if (one_animal == "dog") {
+  print("dog hell yea")
+}else {
+  print("dis not dog")
+}
+#iteration
+for (i in 1:length(animal)) {
+  if (animal[i]  == "dog") {
+    print("dog hell yea")
+  }else {
+    print("dis not dog")
+  }
+}
+
+# another loop with conditions
+species <- c("dog", "elephant", "goat", "dog", "dog", "elephant")
+age_human <- c(3, 8, 4, 6, 12, 18)
+# 1hyr = 7 dyr
+# 1hyr = 0.88 eyr
+# 1hyr = 4.7 gyr
+
+#guts
+i <- 3
+if (species[i] == "dog") {
+  animal_age <- age_human[i] * 7
+} else if (species[i] == "elephant") {
+  animal_age <- age_human[i] * 0.88
+} else if (species[i] == "goat") {
+  animal_age <- age_human[i] * 4.7
+}
+
+# iterate
+# but store first
+animal_alloc <- vector(mode = "numeric", length = length(species))
+for (i in 1:length(species)) {
+  if (species[i] == "dog") {
+    animal_age <- age_human[i] * 7
+  } else if (species[i] == "elephant") {
+    animal_age <- age_human[i] * 0.88
+  } else if (species[i] == "goat") {
+    animal_age <- age_human[i] * 4.7
+  }
+  animal_alloc[i] <- animal_age # storing into vector
+}
+
+# more storing
+tigers <- c(29, 34, 82)
+lions <- c(2, 18, 6)
+
+cats_stor <- vector(mode = "numeric", length = length(tigers))
+
+for (i in 1:length(tigers)) {
+  total_cats <- tigers[i] + lions[i]
+  cats_stor[i] <- total_cats
+}
+
