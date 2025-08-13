@@ -147,3 +147,37 @@ for (i in 1:length(tigers)) {
   cats_stor[i] <- total_cats
 }
 
+# loops across df
+
+#guts
+mean_val <- mean(mtcars[[1]], na.rm = TRUE)
+# storage
+means_mtcars <- vector(mode = "numeric", length = ncol(mtcars))
+
+for (i in 1:ncol(mtcars)){
+  mean_val <- mean(mtcars[[i]])
+  means_mtcars[i] <- mean_val
+}
+
+# loop over cols with condition
+library(palmerpenguins)
+
+for (i in 1:ncol(penguins)) {
+  if (is.numeric(penguins[[i]])) {
+    median <- median(penguins[[i]], na.rm = TRUE)
+    print(median)
+  } else {
+    print("The penguins say surf's up!")
+  }
+}
+
+# using functions now
+# apply(), iterates over cols or rows
+means_mtcars <- apply(X = mtcars, MARGIN = 2, FUN = mean)
+
+# dplyr::
+library(tidyverse)
+
+penguins |> 
+  group_by(species) |> 
+  summarise(across(where(is.numeric), mean, na.rm = TRUE))
