@@ -55,3 +55,34 @@ switch(species,
        "dog" = print("BARK BARK BARK BARK"),
        "mouse" = print("eyyyy my name is jerry ahhh what are ya ganna do about itttt"))
 
+# for loop
+names <- c("Teddy", "Khora", "Banjo", "Waffle")
+print(paste("My dog's name is", names[1]))
+
+for (pup in names) { #FIXME
+  print(pup)
+}
+
+# seq loop
+mass <- seq(from = 0, to = 3, by = 0.5)
+for (i in mass) {
+  new_val <- i + 2
+  print(new_val)
+}
+
+# indexing loop
+for (i in seq_along(mass)) {
+  new_val <- mass[i] + 2
+  print(new_val)
+}
+for (i in 1:length(mass)) {
+  new_val <- mass[i] + 2
+  print(new_val)
+}
+
+tree_height <- c(1, 2, 6, 10)
+for (i in 1:length(tree_height)) {
+  val <- tree_height[i] + tree_height[i + 1]
+  print(val)
+}
+
